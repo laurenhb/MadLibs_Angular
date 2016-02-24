@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="madLibs">
+    <head>
+        <link rel="stylesheet" type="text.css" href="madlibs-angular.css">
+        <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+        <meta charset="utf-8">
+        <title>Mad Libs</title>
+    </head>
+    <body ng-controller="CreateMadLibsController as madLibs">
+        <h1>The Best MadLib Generator In The World!</h1>
+        <h3>(You've heard differently? Where did you get that preposterous hypothesis? Did Steve tell you that? What's he got to do with it? What kind of rapper name is "Steve"? "Steve".)</h3>
+        <h4>(Seriously though, it's way better than Steve's.)</h4>
+        <!-- should have one main function in HTML, javascript to call smaller functions -->
+
+        <br /><br />
+        <div>
+            <label>Select a MadLib Story:</label>
+            <select ng-model="madLibs.selectedStory.name" required>
+                <option value="christmas">Christmas Story</option>
+                <option value="shopping">Shopping Story</option>
+                <option value="brainstorm">Brainstorm Story</option>
+            </select>
+        </div>
+        <br />
+        <div>
+            <label>Enter 1 - 4 Nouns, Verbs, Adverbs, and Adjectives separated by a comma. We'll do the rest 'cuz we're the best! (see above).</label>
+        </div>
+        <div>
+            <label>Nouns:</label>
+            <div>
+            <textarea name="nouns" ng-model="madLibs.userWords.nouns" required></textarea>
+            </div>
+        </div>
+        <div>
+            <label>Verbs:</label>
+            <div>
+            <textarea name="verbs" ng-model="madLibs.userWords.verbs" required></textarea>
+            </div>
+        </div>
+        <div>
+            <label>Adverbs:</label>
+            <div>
+            <textarea name="adverbs" ng-model="madLibs.userWords.adverbs" required></textarea>
+            </div>
+        </div>
+        <div>
+            <label>Adjectives:</label>
+            <div>
+            <textarea name="adjectives" ng-model="madLibs.userWords.adjectives" required></textarea>
+            </div>
+        </div>
+        <br />
+        <div>
+          <input type="submit" value="Generate MadLib" ng-click="madLibs.generateMadLib()" novalidate />
+        </div>
+        <br />
+        {{madLibs.storyDisplay}}
+
+
+        <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+        <script type="text/javascript" src="src/madlibs-angular.js"></script>
+        <script type="text/javascript" src="src/services.js"></script>
+
+    </body>
+</html>
